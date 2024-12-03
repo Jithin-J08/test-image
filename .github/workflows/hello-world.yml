@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: dockerlogin
 
 # Controls when the workflow will run
 on:
@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   LogintodockerhubDev:
-   runs-on: ubuntu-latest
+   runs-on: self-hosted
    environment: Dev
    steps:
      - uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
          username: ${{secrets.DOCKERHUBUSERNAME}}
          password: ${{secrets.DOCKERHUBPASSWORD}}
   LogintodockerhubQA:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: Qa
     steps:
       - uses: actions/checkout@v3
